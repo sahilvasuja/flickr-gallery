@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Gallery from './Gallery';
+import Header from './Header';
+import React, { useState } from 'react';
+import Suggestions from './Suggestion';
+export default function App() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState(['bird', 'sun', 'match', 'virat kohli', 'beach', 'hotel', 'mauntain']);
 
-function App() {
+  const handleSearch = (query) => {
+    console.log("app")
+    setSearchQuery(query);
+  };
+  
+  const handleSuggestionClick = (suggestion) => {
+    setSearchQuery(suggestion);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <>
+   <div className=' bg-gray-300'>
+   <Header  onSearch={handleSearch}/>
+   <Suggestions suggestions={suggestions} onSuggestionClick={handleSuggestionClick} />
+    
+   <Gallery  searchQuery={searchQuery}  />
+   </div>
+   
+   </>
+  )
 }
-
-export default App;
