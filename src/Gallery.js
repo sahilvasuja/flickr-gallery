@@ -42,7 +42,7 @@ const Gallery = ({ searchQuery }) => {
     const fetchRecentPhotos = async () => {
       try {
         setLoading(true);
-        const YOUR_API_KEY = process.env.REACT_APP_API_KEY
+        const YOUR_API_KEY = process.env.REACT_APP_API_KEY 
         let apiUrl;
         
         if (searchQuery) {
