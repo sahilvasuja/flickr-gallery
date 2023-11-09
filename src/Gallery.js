@@ -34,7 +34,7 @@ const Gallery = ({ searchQuery }) => {
       console.error('Error fetching more photos:', error);
     }
     finally {
-        setLoading(false); 
+        setLoading(false);  
       }
   };
 
